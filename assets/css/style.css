@@ -1,4 +1,20 @@
 
+#nav_container.container {
+    margin-bottom: 25px;;
+}
+
 section.container {
     height: 90vh;
+    /* margin: 25px 0 25px 0; */
 }
+
+button.btn-info {
+    margin: 5px;
+}
+
+
+footer.container {
+    margin-top: 25px;
+}
+
+
