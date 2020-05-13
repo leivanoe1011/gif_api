@@ -12,6 +12,13 @@ button.btn-info {
     margin: 5px;
 }
 
+#giphy_container{
+    margin-top: 10px;
+}
+
+#giphy_container > img {
+    margin:5px;
+}
 
 footer.container {
     margin-top: 25px;
