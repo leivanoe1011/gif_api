@@ -15,6 +15,9 @@ var queryURL = "https://api.giphy.com/v1/gifs/";
 // Api Query
 var apiKey = "api_key=yfswyasYEAhn6HkkdSPoOt4vKr3KKGUF";
 
+// Api Rating
+var ratingApi = "rating=g"
+
 
 
 // Create Buttons
@@ -60,8 +63,12 @@ function giphyCall (giphyCategory){
     
     var searchCategory = "search?q=" + giphyCategory;
 
+    var apiCall = queryURL + searchCategory + "&" + apiKey + "&" + ratingApi;
+
+    // console.log(apiCall);
+
     $.ajax({
-        url: queryURL + searchCategory + "&" + apiKey ,
+        url: apiCall,
         method: "GET"
     })
     .then(function(response){
@@ -92,16 +99,67 @@ function pauseAnimageGif(clickedImage){
     }
 }
 
-function createCategory(categoryName){
 
+function doesButtonExist(newCategory){
+
+    var buttons = $(buttonContainer.children());
+
+    var addedCategory = newCategory;
+
+
+    for(var i = 0; i < buttons.length; i++){
+        if(buttons[i].innerHTML === addedCategory){
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+function addNewCategory(categoryName){
+
+    var category = categoryName.toUpperCase();
+    var emptyCategory = false;
+
+    if(category === null || category === ''){
+        emptyCategory = true;
+    }
+
+
+    if(!doesButtonExist(category) && emptyCategory !== true){
+        
+        console.log("going to add a new button");
+
+        var categoryButton = $("<button>");
+        $(categoryButton).attr("type","button");
+        $(categoryButton).attr("class","btn btn-info");
+        $(categoryButton).text(category);
+
+        $(buttonContainer).append(categoryButton);
+
+        giphyCall(categoryName);
+    }
+    else {
+        alert("Category already exists or is empty");
+    }
+    
 }
 
 
 $(document).on("click",".btn-info", function(){
 
-    var categoryName = $(this).text();
+    var currentButton = $(this);
 
-    giphyCall(categoryName);
+    var categoryName = $(currentButton).text();
+
+    var buttonId = $(currentButton).attr("id")
+
+
+    if(buttonId !== "createCategory"){
+        giphyCall(categoryName);
+    }
+    
 
 });
 
@@ -120,7 +178,10 @@ $("#createCategory").on("click", function(event){
 
     var categoryName = $("#categoryEntry").val();
 
-    createCategory(categoryName);
+    addNewCategory(categoryName);
+
+    $("#categoryEntry").val('');
+
 })
 
 
