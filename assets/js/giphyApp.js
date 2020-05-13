@@ -75,8 +75,25 @@ function randomCategory(categoryArray){
 }
 
 function pauseAnimageGif(clickedImage){
-    var imageState = $(clickedImage).data("state");
-    console.log(imageState);
+    
+    var currentImage = clickedImage;
+    var imageState = $(currentImage).data("state");
+    var imageStillUrl = $(currentImage).data("still");
+    var imageAnimateUrl = $(currentImage).data("animate");
+
+    if(imageState === "animate"){
+        // $(currentImage).attr()
+        $(currentImage).attr("src", imageStillUrl);
+        $(currentImage).data("state","still");        
+    }
+    else {
+        $(currentImage).attr("src", imageAnimateUrl);
+        $(currentImage).data("state", "animate");
+    }
+}
+
+function createCategory(categoryName){
+
 }
 
 
@@ -90,12 +107,21 @@ $(document).on("click",".btn-info", function(){
 
 
 $(document).on("click",".gif_grp", function(){
-    console.log("in image button")
 
     var currentImage = $(this);
 
     pauseAnimageGif(currentImage);
 });
+
+
+$("#createCategory").on("click", function(event){
+    
+    event.preventDefault();
+
+    var categoryName = $("#categoryEntry").val();
+
+    createCategory(categoryName);
+})
 
 
 // Start App
