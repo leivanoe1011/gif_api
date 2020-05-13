@@ -34,12 +34,19 @@ function loadGifs(gifData){
     
     var results = gifData.data;
 
+    // console.log(gifData);
+
     for(var i = 0; i < results.length; i++){
         var image = $("<img>");
         var imageUrl = results[i].images.fixed_height.url;
+        var imageStillUrl = results[i].images.fixed_height_still.url;
+
         // console.log(imageurl);
         $(image).attr("src", imageUrl);
         $(image).addClass("gif_grp")
+        $(image).attr("data-still",imageStillUrl);
+        $(image).attr("data-animate", imageUrl);
+        $(image).attr("data-state", "animate");
 
         $(giphyContainer).append(image);
     }
@@ -67,6 +74,11 @@ function randomCategory(categoryArray){
     return categoryArray[Math.floor(Math.random() * categoryArray.length)];
 }
 
+function pauseAnimageGif(clickedImage){
+    var imageState = $(clickedImage).data("state");
+    console.log(imageState);
+}
+
 
 $(document).on("click",".btn-info", function(){
 
@@ -76,9 +88,15 @@ $(document).on("click",".btn-info", function(){
 
 });
 
+
 $(document).on("click",".gif_grp", function(){
-    
-})
+    console.log("in image button")
+
+    var currentImage = $(this);
+
+    pauseAnimageGif(currentImage);
+});
+
 
 // Start App
 $(document).ready(function(){
