@@ -81,6 +81,7 @@ function randomCategory(categoryArray){
     return categoryArray[Math.floor(Math.random() * categoryArray.length)];
 }
 
+
 function pauseAnimageGif(clickedImage){
     
     var currentImage = clickedImage;
@@ -129,8 +130,6 @@ function addNewCategory(categoryName){
 
     if(!doesButtonExist(category) && emptyCategory !== true){
         
-        console.log("going to add a new button");
-
         var categoryButton = $("<button>");
         $(categoryButton).attr("type","button");
         $(categoryButton).attr("class","btn btn-info");

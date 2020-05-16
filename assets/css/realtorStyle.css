@@ -1,7 +1,4 @@
 
-
-
-
 body{
     overflow: auto;
 }
@@ -11,16 +8,10 @@ body{
 }
 
 
-button.btn-info {
+img {
     margin: 5px;
-}
-
-#giphy_container{
-    margin-top: 10px;
-}
-
-#giphy_container > img {
-    margin:5px;
+    width: 80%;
+    height: 80%;
 }
 
 
@@ -28,5 +19,3 @@ footer.container {
     margin-top: 25px;
     padding: 25px;
 }
-
-
