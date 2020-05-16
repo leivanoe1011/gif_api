@@ -80,7 +80,7 @@ function displayResults(data){
 
 
 
-        var homeAddress = '<span class="card-text col-lg-8 col-xl-8">' + properties[i].address.line + 
+        var homeAddress = '<span class="card-text col-lg-8 col-xl-8 home_address">' + properties[i].address.line + 
             "<br>" + properties[i].address.city + ", " + properties[i].address.state_code + 
             " " + properties[i].address.postal_code + '</span>'
 

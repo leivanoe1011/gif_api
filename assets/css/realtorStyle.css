@@ -7,6 +7,17 @@ body{
     margin-bottom: 25px;;
 }
 
+
+#location_container.container{
+    margin-bottom: 25px;
+
+}
+
+form{
+    border: 2px solid #f0eded;
+    padding: 20px;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -24,7 +35,12 @@ a:hover{
     margin: 10px;
 }
 
-.btn-primary {
+.home_address{
+    font-size: small !important;
+}
+
+
+a.btn-primary {
     font-size: x-small !important;
     background-color: white !important;
     color: blue !important;
