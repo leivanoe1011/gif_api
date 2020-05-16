@@ -7,11 +7,29 @@ body{
     margin-bottom: 25px;;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 
-img {
+a:hover{
+    text-decoration: none;
+}
+
+.card-img-top{
     margin: 5px;
-    width: 80%;
-    height: 80%;
+}
+
+.card {
+    margin: 10px;
+}
+
+.btn-primary {
+    font-size: x-small !important;
+    background-color: white !important;
+    color: blue !important;
+    width: 80% !important;
+    height: 80% !important;
 }
 
 

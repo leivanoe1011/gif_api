@@ -37,14 +37,16 @@ function displayResults(data){
     //listingsObj
     var properties = data.properties;
 
+    console.log(properties);
+
     for(var i = 0; i < properties.length; i++){
-        console.log(properties[i]);
+        // console.log(properties[i]);
         
-        var property = $("<div>");
-
-        $(property).addClass("col-lg-4 col-xl-4");
-
         var propertyLink = $("<a>");
+
+        // $(propertyLink).addClass("col-lg-4 col-xl-4");
+
+        $(propertyLink).addClass("card col-lg-3 col-xl-3");
 
         var listingLink = properties[i].rdc_web_url;
 
@@ -52,18 +54,63 @@ function displayResults(data){
 
         var propertyImage = $("<img>");
 
+        // if Undefined bring back default image
         var propertyImageUrl = properties[i].thumbnail;
+
+        propertyImageUrl = typeof propertyImageUrl === "undefined" ? "https://ap.rdcpix.com/668ca688ef7f7d7b8c22a3b1e4ed89dal-m2443712745x.jpg" : propertyImageUrl
+
 
         $(propertyImage).attr("src", propertyImageUrl);
 
+        $(propertyImage).addClass("card-img-top");
 
+        var aboutHome = $("<div>");
+
+        $(aboutHome).addClass("card-body");
+
+        var homeDetails = '<span class="card-text"><strong>' + properties[i].beds + "</strong> Bed(s) " + 
+            "<strong>" + properties[i].baths_full + "</strong> bath(s) "  +
+            "<strong>" + properties[i].building_size.size + "</strong> " + properties[i].building_size.units + "</span>";
+
+
+
+        var otherDetails = $("<div>");
+
+        $(otherDetails).addClass("row card-text");
+
+
+
+        var homeAddress = '<span class="card-text col-lg-8 col-xl-8">' + properties[i].address.line + 
+            "<br>" + properties[i].address.city + ", " + properties[i].address.state_code + 
+            " " + properties[i].address.postal_code + '</span>'
+
+            
+        var emailButton = $("<a>");
+
+        $(emailButton).addClass("btn btn-primary col-lg-4 col-xl-4");
+
+        $(emailButton).attr("href","#");
+
+        $(emailButton).text("Email Agent");
+
+        
+        $(otherDetails).append(homeAddress);
+
+        $(otherDetails).append(emailButton);
+
+
+
+        $(aboutHome).append(homeDetails);
 
         $(propertyLink).append(propertyImage);
-
-
-        $(property).append(propertyLink);     
         
-        $(property).appendTo(listingsObj);
+
+        $(propertyLink).append(homeDetails);
+
+        // $(propertyLink).append(homeAddress);
+        $(propertyLink).append(otherDetails);
+
+        $(propertyLink).appendTo(listingsObj);
 
     }
 
