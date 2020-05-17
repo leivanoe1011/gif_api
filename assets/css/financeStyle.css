@@ -1,0 +1,25 @@
+
+body{
+    overflow: auto;
+}
+
+#nav_container.container {
+    margin-bottom: 25px;;
+}
+
+
+
+#main_container {
+    min-height: 600px !important;
+}
+
+#display_row > .card{
+    margin: 5px !important;
+}
+
+
+
+footer.container {
+    margin-top: 25px;
+    padding: 25px;
+}
