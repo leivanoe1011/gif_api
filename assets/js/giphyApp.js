@@ -46,10 +46,12 @@ function loadGifs(gifData){
 
         // console.log(imageurl);
         $(image).attr("src", imageUrl);
-        $(image).addClass("gif_grp")
+        $(image).addClass("gif_grp wow animate__animated animate__fadeInUp animate__slower")
         $(image).attr("data-still",imageStillUrl);
         $(image).attr("data-animate", imageUrl);
         $(image).attr("data-state", "animate");
+        $(image).attr("data-wow-offset", "0");
+        $(image).attr("data-wow-duration", "3s");
 
         $(giphyContainer).append(image);
     }

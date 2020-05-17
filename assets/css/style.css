@@ -4,6 +4,8 @@
 
 body{
     overflow: auto;
+    font-family: 'Raleway', serif;
+    background-image: url("../images/herringbone.png");
 }
 
 #nav_container.container {
@@ -23,10 +25,16 @@ button.btn-info {
     margin:5px;
 }
 
-
-footer.container {
-    margin-top: 25px;
-    padding: 25px;
+section.container {
+    padding: 20px !important;
+    margin-bottom: 50px !important;
 }
+
+
+#footer_row{
+    border-top: 5px solid #04c1fa;
+    padding: 25px !important;
+}
+
 
 

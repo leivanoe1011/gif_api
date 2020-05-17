@@ -1,6 +1,9 @@
 
 body{
     overflow: auto;
+    font-family: 'Raleway', serif;
+    background-image: url("../images/herringbone.png");
+    /* background-size: cover; */
 }
 
 #nav_container.container {
@@ -8,18 +11,34 @@ body{
 }
 
 
+form {
+    padding: 25px;
+    width: 100%;
+}
+
 
 #main_container {
     min-height: 600px !important;
+    margin-bottom: 50px !important;
 }
+
 
 #display_row > .card{
-    margin: 5px !important;
+    margin: 15px 5px 15px 5px !important;
 }
 
+
+.card > .card-header{
+    font-size: x-large !important;
+}
 
 
 footer.container {
-    margin-top: 25px;
-    padding: 25px;
+    margin-top: 25px !important;
+}
+
+
+#footer_row{
+    border-top: 5px solid #04c1fa;
+    padding: 25px !important;
 }
